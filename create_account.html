@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #84fab0, #8fd3f4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      width: 380px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #7f58af;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to right, #7f58af, #9b5de5);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(to right, #9b5de5, #7f58af);
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+      <div class="error" id="nameError">Please enter your name</div>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter 10-digit number" maxlength="10" required>
+      <div class="error" id="phoneError">Please enter a valid 10-digit phone number</div>
+
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="Enter your state" required>
+      <div class="error" id="stateError">Please enter your state</div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <div class="error" id="emailError">Please enter a valid email</div>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required minlength="6">
+      <div class="error" id="passwordError">Password must be at least 6 characters</div>
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="Confirm your password" required>
+      <div class="error" id="confirmError">Passwords do not match</div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const state = document.getElementById("state").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      let valid = true;
+
+      // Reset errors
+      document.querySelectorAll(".error").forEach(e => e.style.display = "none");
+
+      // Name validation
+      if (name.length < 2) {
+        document.getElementById("nameError").style.display = "block";
+        valid = false;
+      }
+
+      // Phone validation
+      if (!/^\d{10}$/.test(phone)) {
+        document.getElementById("phoneError").style.display = "block";
+        valid = false;
+      }
+
+      // State validation
+      if (state.length < 2) {
+        document.getElementById("stateError").style.display = "block";
+        valid = false;
+      }
+
+      // Email validation
+      if (!email.includes("@") || !email.includes(".")) {
+        document.getElementById("emailError").style.display = "block";
+        valid = false;
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        document.getElementById("passwordError").style.display = "block";
+        valid = false;
+      }
+
+      // Confirm password validation
+      if (password !== confirm) {
+        document.getElementById("confirmError").style.display = "block";
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Save to localStorage for demo
+      const user = { name, phone, state, email, password };
+      localStorage.setItem("userAccount", JSON.stringify(user));
+
+      alert("Account created successfully!");
+      form.reset();
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

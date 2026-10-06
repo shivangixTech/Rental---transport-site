@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rental Transport — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold text-indigo-600">RentalTransport</a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-6 items-center">
+        <a href="vehicals.html" class="hover:text-indigo-600">Vehicles</a>
+        <a href="about.html" class="hover:text-indigo-600">About</a>
+        <a href="contact.html" class="hover:text-indigo-600">Contact</a>
+        <a href="login.html" class="px-4 py-2 border rounded text-sm">Login</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden">☰</button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <a href="vehicals.html" class="block px-4 py-2">Vehicles</a>
+      <a href="about.html" class="block px-4 py-2">About</a>
+      <a href="contact.html" class="block px-4 py-2">Contact</a>
+      <a href="login.html" class="block px-4 py-2">Login</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container mx-auto px-4 py-12">
+    <div class="grid gap-8 md:grid-cols-2 items-center">
+      
+      <!-- Hero Text -->
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
+          Travel smart. Rent the right ride.
+        </h1>
+        <p class="mt-4 text-gray-600">
+          Find cars, vans, and bikes for day trips, long journeys, or airport pickups.
+          Quick booking, transparent pricing.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="booking.html" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded shadow hover:bg-indigo-700">
+            Book Now
+          </a>
+          <a href="vehicals.html" class="inline-block px-6 py-3 border rounded text-sm">
+            Browse Vehicles
+          </a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm text-gray-600">
+          <div><strong>24/7 Support</strong></div>
+          <div><strong>Insurance</strong></div>
+          <div><strong>Free Cancellations</strong></div>
+          <div><strong>Easy Pickup</strong></div>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="relative">
+        <img src="car.png" alt="Rental vehicles on a road" class="rounded-lg shadow-lg w-full object-cover h-64 md:h-96">
+      </div>
+    </div>
+
+    <!-- Quick Search Bar -->
+    <section class="mt-12 bg-white p-4 rounded shadow">
+      <form id="quickSearch" class="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <input name="pickup" placeholder="Pickup location" class="p-3 border rounded" required>
+        <input name="drop" placeholder="Drop location" class="p-3 border rounded" required>
+        <input name="date" type="date" class="p-3 border rounded" required>
+        <button class="p-3 bg-indigo-600 text-white rounded">Search</button>
+      </form>
+    </section>
+
+    <!-- Popular Vehicles Section -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Popular Vehicles</h2>
+      <div id="homeVehicles" class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12">
+    <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+      <div class="text-sm">
+        &copy; <span id="year"></span> Shivangi dwivedi. All rights reserved.
+      </div>
+      <div class="flex gap-4 mt-4 md:mt-0">
+        <a href="#" class="text-gray-500 hover:text-indigo-600">Privacy</a>
+        <a href="#" class="text-gray-500 hover:text-indigo-600">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

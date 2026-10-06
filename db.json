@@ -1,0 +1,28 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "Hyundai i20",
+      "type": "Car",
+      "price": 2000,
+      "image": "https://cdn.pixabay.com/photo/2016/11/29/02/27/auto-1868726_1280.jpg",
+      "description": "Compact car, perfect for city rides. Excellent fuel efficiency."
+    },
+    {
+      "id": 2,
+      "name": "Royal Enfield Classic",
+      "type": "Bike",
+      "price": 1500,
+      "image": "https://cdn.pixabay.com/photo/2016/11/29/06/21/motorcycle-1869792_1280.jpg",
+      "description": "Strong, stylish, and reliable. Perfect for road trips."
+    },
+    {
+      "id": 3,
+      "name": "Tata Winger Van",
+      "type": "Van",
+      "price": 4000,
+      "image": "https://cdn.pixabay.com/photo/2015/01/19/13/51/van-604016_1280.jpg",
+      "description": "Spacious van suitable for family or group travel."
+    }
+  ]
+}
